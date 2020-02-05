@@ -3,9 +3,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
 
-
 module.exports = (env, argv) => {
     const isProduction = argv.mode === 'production';
+
     const config = {
         entry: './src/index.js',
         output: {
@@ -56,7 +56,8 @@ module.exports = (env, argv) => {
     if (isProduction) {
         config.plugins.push(new MiniCssExtractPlugin({
             filename: '[name].css',
-        }));
+        }))
     }
+
     return config;
 };
